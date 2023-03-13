@@ -1,12 +1,7 @@
-/*
-Створити змінні, в яких лежатимуть значення: 4, 'four', null, undefined, true
-Спитати в консолі типи даних всіх змінних
+let num = 5;
 
-*/
+console.log(num); // метод Консолі для виведення значення змінної на консоль
 
 
-let a = 4; // 'number'
-let b = 'four'; // 'string'
-let c = null; // typeof null  - 'object'
-let d = undefined; //'undefined'
-let e = true; // 'boolean'
+console.log('hello');
+console.log(true);
