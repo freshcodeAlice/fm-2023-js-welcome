@@ -1,11 +1,15 @@
-let sum = 5 - 5 * 2;
+let num = 5 + 5;
 
-console.log(sum);
+console.log(num);
 
-let result = 5 / 0;
+let str = 5 + 'hello';
 
-console.log(result);
+console.log(str);
 
-let isThis = 6 * 'hello';
+/*
+Оператор "+" вміє
+1. Складати, якщо обидва операнди - числа
+2. Конкатенувати, якщо хоч хтось з операндів - рядок.
 
-console.log(isThis); // NaN - Not-a-Number
+
+*/
