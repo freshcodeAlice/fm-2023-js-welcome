@@ -1,9 +1,10 @@
+let num = Number(prompt('Type your number')); //'12' -> 12
+// num = 'aaaaaa',  Number('aaaaaa')  -> NaN
+let verdict = isNaN(num); // isNaN(12) --> false
 
-/*
-Спитати в користувача, як його звати, і вивести alert з фразою "Привіт, "+ім'я, яке користувач ввів
+if (verdict) {
+    console.log('Its not a number')
+} else {
+    console.log(num + 2);
+}
 
-
-*/
-
-let userName = prompt('Who are you?');
-alert("Привіт, " + userName);
