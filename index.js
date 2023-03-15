@@ -11,56 +11,16 @@ function ім'яФункції(список аргументів) {
 
 */
 
-function sumTwoAndTwo(){
-    let sum = 2 + 2;
-    console.log(sum);
-}
-/////////////////
 
+function washMachine(mode, temperature, rmp, soap, clothes) {
+        // робимо прання 
 
-// sumTwoAndTwo();
-
-
- function sumThreeAndThree() {
-    let sum2 = 3 + 3;
-    console.log(sum2);
- }
-
-
-// sumThreeAndThree();
-
-
-function sumTwoNumbers(arg1, arg2){
-        let sum = arg1 + arg2;
-        console.log(sum);
+        let pureClothes = 'Its pure';
+        ///////
+        return pureClothes
 }
 
 
-sumTwoNumbers(2, 3);
 
-sumTwoNumbers(5, 10);
-
-//console.log(sum);
-
-
-
-function something(a1, a2, a3, a4, a5) {
-    console.log(a1);
-    console.log(a2);
-    console.log(a3);
-    console.log(a4);
-    console.log(a5);
-
-    console.log(a1 + a2 + a3 + a4 + a5);
-}
-
-
-something(1, 2, 3);
-
-
-
-function something2() {
-    console.log('hello');
-}
-
-something2(1, 2, 3);
+let resultOfWashing = washMachine('Bavovna', 30, 400, 'Soap', 'Shirt');
+console.log(resultOfWashing);
