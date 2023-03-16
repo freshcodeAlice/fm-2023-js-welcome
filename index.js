@@ -1,17 +1,37 @@
 /*
-Написати функцію, яка приймає два числа і повертає середнє арифметичне
+Написати функцію, яка вирішує квадратні рівняння
 
-Середнє арифметичне = сума всіх чисел, поділена на кількість цих чисел
+Квадратне рівняння - рівняння вигляду
+
+a*x**2 + b*x + c = 0
+
+Вирішується дискримінантом
+D = b2 − 4ac
+
+Якщо D > 0, то коренів 2,
+    x1 = (-b + ^D) / 2*a
+    x2 = (-b - ^D) / 2*a
+Якщо D = 0, то корінь 1
+Якщо D < 0, то коренів немає
 
 */
 
 
-function average(num1, num2) {
-    if (isNaN(num1)) {
-        return false
+function quadraticEquation(a, b, c) {
+    let D = b*b - 4 * a * c; 
+    let x1 = null;
+    let x2 = null;
+    if (D > 0) {
+        x1 = (-b + Math.sqrt(D)) / (2 * a);
+        x2 = (-b - Math.sqrt(D)) / (2 * a);
+        console.log(x1);
+        console.log(x2);
     }
-    if (isNaN(num2)) {
-        return false
+    if (D === 0) {
+        x1 = -b / 2*a;
+        console.log(x1);
     }
-    return (num1 + num2) / 2
+    if (D < 0) {
+        console.log('Equation has no roots')
+    }
 }
