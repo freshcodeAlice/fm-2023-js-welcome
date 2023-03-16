@@ -1,40 +1,28 @@
-// 1 - Function Declaration - Задекларована функція - FD
-
 /*
-funName() // таку функцію можна викликати раніше, ніж в коді вона описана
-
-
-function funName(arg) {
-    //// code
-    return ;
-}
+Scope - область видимості. Це ті значення, до яких ми маємо доступ
 
 
 */
 
 
-// 2 - Function Expression - Функціональний вираз - FE
+debugger;
 
-let func = function(arg) {
-    ////
+
+function increment() {
+    console.log(++counter); // Використовування глобальних змінних - це Bad Practice (погана ідея), бо цю змінну хтось інший може змінити, а ви навіть не дізнаєтесь про це, і ваш код буде працювати неправильно
 }
 
-func() // таку функцію можна викликати тільки після того, як вона описана (тобто нижче по коду)
 
-
-// 3 - Arrow function - Стрілочні функції
-
-let arrow = (arg) => {
-    /////
+function changeCounter() {
+    counter = 200;
 }
 
-let shotArrow = x => x * x; // Якщо стрілочна функція складається з одного рядка, то можна опустити слово return і {}
+let counter = 0;
 
 
+increment();
 
-/////// Immeadiately invoked function (Функція самовиклику - самовызывающаяся функция) - IIF
-// Одноразова, її неможливо викликати ще раз з іншого місця коду
 
-(function () {
-    /////
-})()
+changeCounter();
+
+increment();
