@@ -1,26 +1,17 @@
-
-
 /*
+Написати функцію, яка приймає два числа і повертає середнє арифметичне
 
-Напишіть функцію, яка визначає чи парним є передане їй число
-Повертає true, якщо число парне (четное)
-false, якщо непарне
+Середнє арифметичне = сума всіх чисел, поділена на кількість цих чисел
+
 */
- 
 
-function isEven(num) {
-    let rest = num % 2;
 
-    // if (rest === 1) {
-    //     return false
-    // } else {
-    //     return true
-    // }
-
-   // return (num % 2 === 0) ? true : false;
-   
-   return !Boolean(num % 2)
-
+function average(num1, num2) {
+    if (isNaN(num1)) {
+        return false
+    }
+    if (isNaN(num2)) {
+        return false
+    }
+    return (num1 + num2) / 2
 }
-
-
