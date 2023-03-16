@@ -1,4 +1,4 @@
-// 1 - Function Declaration - Задекларована функція
+// 1 - Function Declaration - Задекларована функція - FD
 
 /*
 funName() // таку функцію можна викликати раніше, ніж в коді вона описана
@@ -13,7 +13,7 @@ function funName(arg) {
 */
 
 
-// 2 - Function Expression - Функціональний вираз
+// 2 - Function Expression - Функціональний вираз - FE
 
 let func = function(arg) {
     ////
@@ -29,3 +29,12 @@ let arrow = (arg) => {
 }
 
 let shotArrow = x => x * x; // Якщо стрілочна функція складається з одного рядка, то можна опустити слово return і {}
+
+
+
+/////// Immeadiately invoked function (Функція самовиклику - самовызывающаяся функция) - IIF
+// Одноразова, її неможливо викликати ще раз з іншого місця коду
+
+(function () {
+    /////
+})()
