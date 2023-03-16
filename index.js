@@ -7,22 +7,13 @@ Scope - область видимості. Це ті значення, до як
 
 debugger;
 
+let counter = 1;
 
-function increment() {
-    console.log(++counter); // Використовування глобальних змінних - це Bad Practice (погана ідея), бо цю змінну хтось інший може змінити, а ви навіть не дізнаєтесь про це, і ваш код буде працювати неправильно
+
+function goodFunction(counter) {
+    console.log(counter); // Функція має свій counter у локальній області видимості і не буде лізти до глобальної
+    /// Все, з чим працює функція, має приходити цій функції як аргументи
+    
 }
 
-
-function changeCounter() {
-    counter = 200;
-}
-
-let counter = 0;
-
-
-increment();
-
-
-changeCounter();
-
-increment();
+goodFunction(10);
