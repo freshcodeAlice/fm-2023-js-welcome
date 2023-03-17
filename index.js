@@ -15,12 +15,15 @@ debugger;
 
 let counter = 0;
 
-while(true) {
+while(++counter < 3) {
     console.log('loop is going');
-    counter = counter + 1;
-    if (counter > 3) {
-        break;
-    }
 }
 
 console.log('loop has ended');
+
+/* 
+Префіксна форма інкремента - спочатку +1, потім працюємо зі значенням (порівнюємо його, наприклад, з умовою)
+постфіксна форма - спочатку працюємо зі значенням, потім +1
+
+
+*/
