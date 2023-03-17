@@ -24,51 +24,69 @@
 // } else {
 //     console.log('Я не знаю такого напою')
 // }
-
+/*
+switch(userInput) {
+    case '1': {
+        console.log("Ви обрали чай");
+        break;
+    }
+    case '2': {
+        console.log("Ви обрали каву");
+        break;
+    }
+    case '3': {
+        console.log("Ви обрали сік");
+        break;
+    }
+    default: {
+        console.log('Я не знаю такого напою');
+    }
+}
+*/
 
 /*
-Switch - Це оператор вітвлення
+Спитати у користувача, який номер дня тижня його цікавить
+Залежно від номера, який введе користувач, вивести назву цього дня
+1 - "Понеділок"
+2 - Вівторок
+....
 
-case - випадок
-
-switch(змінна) {// змінна чи будь-яке значення, яке буде "вмикати" потрібний варіант 
-    case значення1:
-        // робимо щось, якщо змінна = значення1
-    case значення2:
-        //робимо щось, якщо змінна = значення2
-    case значення3:
-            // робимо щось, якщо змінна = значення3
-    case значення4:
-            //робимо щось, якщо змінна = значення4
-    default:
-        // робимо щось, якщо ніхто з попередніх варіантів не підійшов
-}
 
 */
 
-debugger
 
-let x = 2;
+let weekDay = prompt('What day do you want?');
 
-
-switch(x) {
-    case 1: {
-        console.log('x=1');
+switch(weekDay) {
+    case '1': {
+        console.log('Monday');
         break;
     }
-    case 2: {
-        console.log('x=2');
+    case '2': {
+        console.log('Tuesday');
         break;
     }
-    case 3: {
-        console.log('x=3');
+    case '3': {
+        console.log('Wednesday');
         break;
     }
-    default:
-        console.log('x??');
+    case '4': {
+        console.log('Thursday');
+        break;
+    }
+    case '5': {
+        console.log('Friday');
+        break;
+    }
+    case '6': {
+        console.log('Saturday');
+        break;
+    }
+    case '7': {
+        console.log('Sunday');
+        break;
+    } 
+    default: {
+        console.log('There is no such day');
+    }
 }
-
-
-//break - оператор, що зупиняє виконання поточного блоку коду
-
-
