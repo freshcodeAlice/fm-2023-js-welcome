@@ -90,4 +90,7 @@ while(counter <= 20) {
 console.log(sum);
 
 
-
+/// Різновид циклу while
+do {
+ // блок коду
+} while(умова)
