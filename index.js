@@ -1,92 +1,62 @@
 /*
-Вивести користувачу "меню" з трьох напоїв і прийняти його вибір
-1 - Чай
-2 - Кава
-3 - Сік
+Задача: зробити калькулятор.
+Функція calculator запитує у користувача послідовно двома промптами два числа.
+Третім промптом запитує дію:
++ - щоб скласти
+- - щоб відняти
+* - щоб перемножити
+/ - щоб поділити
 
-Якщо користувач напише 1 - вивести "Ви обрали чай"
-Якщо 2 - "Ви обрали каву"
-Якщо 3 - "Ви обрали сік"
+Результат вивести в alert
 
-Якщо якийсь інший варіант - написати "Я не знаю такого напою"
 
 */
-//debugger;
 
-//let userInput = prompt('Оберіть напій \n 1 - Чай \n2 - Кава \n3 - Сік');
+function calculator() {
+    let num1 = Number(prompt('Type first number'));
+    let num2 = Number(prompt('Type second number'));
+    let action = prompt('Choose your action: +, -, *, /');
+    let result;
+    /// Покращення коду: перевірити числа на NaN
 
-// if(userInput === '1') {
-//     console.log("Ви обрали чай");
-// } else if (userInput === '2') {
-//     console.log("Ви обрали каву");
-// } else if(userInput === '3') {
-//     console.log("Ви обрали сік");
-// } else {
-//     console.log('Я не знаю такого напою')
-// }
-/*
-switch(userInput) {
-    case '1': {
-        console.log("Ви обрали чай");
-        break;
+    switch(action) {
+        case '+': {
+            result = sum(num1, num2);
+            break;
+        }
+        case '-': {
+            result = sub(num1, num2);
+            break;
+        }
+        case '*': {
+            result = multiply(num1, num2);
+            break;
+        }
+        case '/': {
+            result = divide(num1, num2);
+            break;
+        }
+        default: {
+            return false;
+        }
     }
-    case '2': {
-        console.log("Ви обрали каву");
-        break;
-    }
-    case '3': {
-        console.log("Ви обрали сік");
-        break;
-    }
-    default: {
-        console.log('Я не знаю такого напою');
-    }
+
+    return result;
 }
-*/
-
-/*
-Спитати у користувача, який номер дня тижня його цікавить
-Залежно від номера, який введе користувач, вивести назву цього дня
-1 - "Понеділок"
-2 - Вівторок
-....
 
 
-*/
+function sum(a, b) {
+    return a + b;
+}
 
+function sub(a,b) {
+    return a - b;
+}
 
-let weekDay = prompt('What day do you want?');
+function multiply(a,b) {
+    return a * b;
+}
 
-switch(weekDay) {
-    case '1': {
-        console.log('Monday');
-        break;
-    }
-    case '2': {
-        console.log('Tuesday');
-        break;
-    }
-    case '3': {
-        console.log('Wednesday');
-        break;
-    }
-    case '4': {
-        console.log('Thursday');
-        break;
-    }
-    case '5': {
-        console.log('Friday');
-        break;
-    }
-    case '6': {
-        console.log('Saturday');
-        break;
-    }
-    case '7': {
-        console.log('Sunday');
-        break;
-    } 
-    default: {
-        console.log('There is no such day');
-    }
+function divide(a,b) {
+    return a / b;
 }
