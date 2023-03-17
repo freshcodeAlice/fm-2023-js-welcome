@@ -1,62 +1,26 @@
+/* Цикли  */
+
+
+/// Цикл - це повторення певного блоку коду задану кількість разів
+// Одне повторення (захід виконання) наз. ітерація
+
 /*
-Задача: зробити калькулятор.
-Функція calculator запитує у користувача послідовно двома промптами два числа.
-Третім промптом запитує дію:
-+ - щоб скласти
-- - щоб відняти
-* - щоб перемножити
-/ - щоб поділити
-
-Результат вивести в alert
-
-
+while(умова) {
+    // блок коду, який буде виконуватись, поки умова = true
+    // коли умова = false, ми виходимо з циклу
+}
 */
 
-function calculator() {
-    let num1 = Number(prompt('Type first number'));
-    let num2 = Number(prompt('Type second number'));
-    let action = prompt('Choose your action: +, -, *, /');
-    let result;
-    /// Покращення коду: перевірити числа на NaN
+debugger;
 
-    switch(action) {
-        case '+': {
-            result = sum(num1, num2);
-            break;
-        }
-        case '-': {
-            result = sub(num1, num2);
-            break;
-        }
-        case '*': {
-            result = multiply(num1, num2);
-            break;
-        }
-        case '/': {
-            result = divide(num1, num2);
-            break;
-        }
-        default: {
-            return false;
-        }
+let counter = 0;
+
+while(true) {
+    console.log('loop is going');
+    counter = counter + 1;
+    if (counter > 3) {
+        break;
     }
-
-    return result;
 }
 
-
-function sum(a, b) {
-    return a + b;
-}
-
-function sub(a,b) {
-    return a - b;
-}
-
-function multiply(a,b) {
-    return a * b;
-}
-
-function divide(a,b) {
-    return a / b;
-}
+console.log('loop has ended');
