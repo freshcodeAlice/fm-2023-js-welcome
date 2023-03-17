@@ -11,6 +11,7 @@ while(умова) {
 }
 */
 
+/*
 debugger;
 
 let counter = 0;
@@ -20,6 +21,7 @@ while(++counter < 3) {
 }
 
 console.log('loop has ended');
+*/
 
 /* 
 Префіксна форма інкремента - спочатку +1, потім працюємо зі значенням (порівнюємо його, наприклад, з умовою)
@@ -27,3 +29,65 @@ console.log('loop has ended');
 
 
 */
+
+
+//Задача: вивести на консоль числа від 0 до 10
+
+/*
+let counter = 0;
+
+while(counter <= 10) {
+    console.log(counter);
+    counter++;
+}
+*/
+
+/*
+Вивести на консоль числа в діапазоні від 0 до 10 (включно), які є парними
+
+
+*/
+
+/*
+let counter = 0;
+while (counter <= 10) {
+    if(counter % 2 === 0) {
+        console.log(counter);
+    }
+    counter++;
+}
+*/
+
+
+
+/*
+1. Вивести всі числа, що ділять на 3 і 5
+
+2. Знайти суму всіх чисел від 1 до 20
+
+*/
+
+/*
+let number = 0;
+while (number <= 15) {
+    if((number % 3 === 0) && (number % 5 === 0)) {
+        console.log(number);
+    }
+    number++;
+}
+
+*/
+debugger;
+
+let sum = 0;
+let counter = 0;
+
+while(counter <= 20) {
+    sum += counter;
+    counter++;
+}
+
+console.log(sum);
+
+
+
