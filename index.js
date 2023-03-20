@@ -40,3 +40,18 @@ console.log(templ2)
 function sayHello2(obj) {
     console.log(`${obj.name} каже: "Привіт"`);
 }
+
+
+/*
+Маємо константи з частинами URL-адреси
+
+
+*/
+
+const PROTOCOL = 'http://';
+const SERVER_IP = 'domain.com';
+const PORT = 3000;
+
+function getFullURL(path = '') {
+    return `${PROTOCOL}${SERVER_IP}:${PORT}/${path}`;
+}  // http://domain.com:3000/path-to-my-file
