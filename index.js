@@ -1,57 +1,26 @@
-/// Створіть два об'єкти користувачів, що мають ім'я та прізвище.
-// Напишіть функцію, яка приймає об'єкт і виводить на консоль вітання типу "ім'яЮзера каже Привіт"
-
-
-let user1 = {
-    name: 'Vasia',
-    lastName: 'Petrov'
-}
-
-let user2 = {
-    name: 'Petya',
-    lastName: 'Vasechkin'
-}
-
-
-function sayHello(obj) {
-    console.log(obj.name + ' каже Привіт');
-}
-
-
-/// Шаблонні рядки
-
-let name = 'Vasia';
-
-let str = 'hello ' + name;
-
-console.log(str);
-
-let templateString = `hello ${name}`;
-
-console.log(templateString);
-
-let templ2 = `2 + 2 = ${2+2}`;
-
-
-console.log(templ2)
-
-
-
-function sayHello2(obj) {
-    console.log(`${obj.name} каже: "Привіт"`);
-}
-
-
 /*
-Маємо константи з частинами URL-адреси
+Домашнє завдання:
 
 
+1. Написати функцію, яка приймає число і виводить результат обчислення множення 2 на 1...до цього числа
+Цикл та шаблонний рядок
+
+
+2. Написати функцію getBanned(), яка приймає об'єкт юзера і додає йому нову властивість - banned = true.
+В результаті повернути true.
+Задача на роботу з об'єктами.
+В якості перевірки зробіть декілька об'єктів юзерів і послідовно їх "забаньте".
 */
 
-const PROTOCOL = 'http://';
-const SERVER_IP = 'domain.com';
-const PORT = 3000;
 
-function getFullURL(path = '') {
-    return `${PROTOCOL}${SERVER_IP}:${PORT}/${path}`;
-}  // http://domain.com:3000/path-to-my-file
+function getTwoMultyNumber(num) {
+
+}
+
+
+getTwoMultyNumber(5) 
+// 2*1 = 2
+// 2*2 = 4
+// 2*3 = 6
+// 2*4 = 8
+// 2*5 = 10
