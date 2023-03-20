@@ -75,9 +75,31 @@ function sumTwoNumbers(a, b) {
 }
 
 function consoleResult(arg1, arg2, func) {
+    ///// виконати певну роботу, і тільки після неї викликати функцію, що була нам передана
     let result = func(arg1, arg2);
     console.log(result);
 }
 
 
 consoleResult(4, 5, sumTwoNumbers)
+
+
+
+/// Створіть два об'єкти користувачів, що мають ім'я та прізвище.
+// Напишіть функцію, яка приймає об'єкт і виводить на консоль вітання типу "ім'яЮзера каже Привіт"
+
+
+let user1 = {
+    name: 'Vasia',
+    lastName: 'Petrov'
+}
+
+let user2 = {
+    name: 'Petya',
+    lastName: 'Vasechkin'
+}
+
+
+function sayHello(obj) {
+    console.log(obj.name + ' каже Привіт');
+}
