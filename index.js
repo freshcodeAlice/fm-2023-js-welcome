@@ -31,3 +31,10 @@ function Cat(name, age, weight ,color){
 
 
 const blackCat = new Cat('Kitty', 3, 'black');
+
+blackCat.age++;
+
+for(let i=0; i< 3; i++) {
+    const cat = new Cat('aaa','ccc', 'ssss');
+    console.log(cat)
+}
