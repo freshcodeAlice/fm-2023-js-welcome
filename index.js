@@ -1,16 +1,24 @@
-const cat = {
-    name: 'Murka'
+/// Об'єкт
+// Ключ в об'єкті - рядок або Symbol()
+
+const user = {
+    firstName: 'John',
+    lastName: 'Doe',
+    'favourite color': 'red',
+    2: 'value'
 }
 
-cat.age = 5;
-//   5
- cat.name = 'Barsik';
-//    'Barsik'
-cat = {
-test: 'value'
- }
-/* Uncaught TypeError: Assignment to constant variable.
-        at <anonymous>:1:5
-*/
-    cat
-//    {name: 'Barsik', age: 5}
+//console.log(user.'favourite color');  - не буде працювати
+
+// Оператор доступу до обчислюваної властивості - конотацією масива
+// []
+
+user['favourite color']
+user['2']
+user[2]
+
+
+
+let property = 'firstName';
+
+user[property] // 'John'
