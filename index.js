@@ -37,3 +37,45 @@ function isObjEquals(obj1, obj2) {
     }
     return true;
 }
+
+///// Задача: написати функцію, яка перевіряє об'єкт на пустоту
+// {} -> true, {test: 'value'} -> false
+
+
+function isEmpty(obj) {
+    debugger;
+    for (const key in obj) {
+       /* Якщо obj[key] поверне БУДЬ-ЯКЕ існуюче значення - то об'єкт не пустий
+       Якщо obj[key] повертає undefined - то в об'єкті такої властивості нема
+       */
+    //  if(obj[key]) {
+        return false;
+    //  }
+    }
+    return true;
+}
+
+
+
+/// Задачка з *: написати функцію, яка знаходить суму всіх числових значень в об'єкті
+/*
+const o = {
+    key: 1,
+    test: 3,
+    aaa: 'd',
+    hhh: '5',
+    kkk: true
+}
+*/
+
+
+function getSumOfNumValues(object) {
+    let sum = 0;
+    for (const key in object) {
+       if( typeof object[key] === 'number'){
+        sum += object[key];
+       }
+    }
+
+    return sum;
+}
