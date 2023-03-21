@@ -1,24 +1,18 @@
-/// Об'єкт
-// Ключ в об'єкті - рядок або Symbol()
-
-const user = {
-    firstName: 'John',
-    lastName: 'Doe',
-    'favourite color': 'red',
-    2: 'value'
+const userPlan = {
+    mon: 'dantist',
+    tue: 'go to park',
+    wed: 'hard work',
+    thu: 'go party',
+    fri: 'read a book',
+    sat: 'stay in bed'
 }
 
-//console.log(user.'favourite color');  - не буде працювати
 
-// Оператор доступу до обчислюваної властивості - конотацією масива
-// []
+//// Спитати у юзера, який день тижня його цікавить
+/// Вивести alert-ом значення з об'єкта, що відповідає введеному дню.
 
-user['favourite color']
-user['2']
-user[2]
+// Наприклад: юзер вводить 'Wed' -> 'hard work'
 
+const userInput = prompt('What day do you want?');
+alert(`${userPlan[userInput] ? userPlan[userInput] : 'Nothing planned'}`);
 
-
-let property = 'firstName';
-
-user[property] // 'John'
