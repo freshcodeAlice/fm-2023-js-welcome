@@ -6,6 +6,10 @@ function MyArray() {
         this.length++;
     }
 
+}
+
+
+function MyProtoArray() {
     this.push = function(value) {
         this[this.length] = value;
         this.length++;
@@ -26,23 +30,5 @@ function MyArray() {
 }
 
 
-//////// Прототипи 
-
-function Cat (name) {
-    this.name = name;
-}
-
-function Dog(name) {
-    this.name = name;
-}
-
-
-function ProtoArrayAnimal(type){
-    this.type = type;
-    this.saySomething = function(){
-        return `${this.name} say Meow`
-    }
-}
-
-Cat.prototype = new ProtoArrayAnimal('cat');
-Dog.prototype = new ProtoArrayAnimal('dog');
+const protoArray = new MyProtoArray();
+MyArray.prototype = protoArray;
