@@ -1,6 +1,11 @@
 function MyArray() {
     this.length = 0;
 
+    for(let i = 0; i < arguments.length; i++) {
+        this[this.length] = arguments[i];
+        this.length++;
+    }
+
     this.push = function(value) {
         this[this.length] = value;
         this.length++;
