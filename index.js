@@ -44,3 +44,38 @@ this.value--;
 3. Реалізувати метод reverse
 
 */
+
+
+
+
+
+///////////
+
+
+// Функції
+
+function sum() {
+    let result = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        result += arguments[i];
+    }
+    return result;
+}
+
+
+sum(32, 2);
+sum(3, 1, 8);
+sum(3, 1, 2, 3, 4, 2);
+
+
+//  Написати функцію, яка приймає довільну кількість елементів і знаходить серед них найбільший
+
+function getMax(){
+    let max = arguments[0];
+    for (let i = 1; i < arguments.length; i++) {
+        if (arguments[i] > max) {
+            max = arguments[i];
+        }
+    }
+    return max;
+}
