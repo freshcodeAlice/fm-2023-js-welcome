@@ -1,63 +1,55 @@
-/* Методи Масивів  */
 
-/// forEach - (для кожного) - викликає передану функцію для кожного елемента масива
-
-const users = [ 
-    {
-        firstName: 'John',
-        lastName: 'Doe'
-    },
-    {
-        firstName: 'Alex',
-        lastName: 'Crow'
-    }
-];
-
-users.forEach(function (userObj) {
-    userObj.age = 21;
-});
+/*
+Домашнє завдання:
+1. Написати функцію-конструктор Worker(робітник). У робітника є
+- ім'я (firstName)
+- прізвище (lastName)
+- ставка за день (rate)
+- кількість відпрацьованих днів в поточному місяці (days)
+А також метод getSalary, який розраховує зарплатню.
+Звернути увагу: ставка не може бути від'ємною, кількість відпрацьованих днів теж.
 
 
-//// map() - викликає передану функцію для кожного елемента масива і результат цієї функції буде наступним елементом нового масива
+2. Написати функцію-конструктор для країни Country
+Країна матиме властивості:
+- назва
+- площа
+- кількість населення
+Метод, що розраховує щільність населення (кількість населення / площу країни)
+*/
 
 
-const array2 = [1, 2, 3, 4, 5];
-
-
-const changeArr = array2.map((num) => num+2);
-
-
-
-//////
-
-// array2.filter(function (element) {
-//     // if (element % 2 === 0) {
-//     //     return true
-//     // } else {
-//     //     return false
-//     // }
-
-//     // return (element % 2) ? false : true; 
-
-//     return element % 2 === 0
-// })
-
-const filtered = array2.filter((elem) => !(elem % 2));
-
-
-
-///// Sort
-
-
-const newArray = [2, 6, 3, 7, 1];
-
-newArray.sort((a, b) => b - a);
-
-
-users.sort(function (prev, next) {
-    if (prev.firstName > next.firstName) {
-        return 1;
+function Worker(firstName, lastName, rate, days) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    if (rate < 0) {
+        this.rate = 0;
     } else {
-        return -1;
+        this.rate = rate;
     }
-});
+    if(days < 0) {
+        this.days = 0;
+    } else {
+        this.days = days;
+    }
+
+    this.getSalary = function(){
+        return this.days * this.rate;
+    }
+}
+
+
+
+///2
+
+
+function Country(name, area, popularity) {
+    this.name = name;
+    this.area = area;
+    this.popularity = popularity;
+
+
+    this.getDensity = function (){
+        return this.popularity/this.area;
+    } 
+}
