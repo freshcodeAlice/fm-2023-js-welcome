@@ -14,7 +14,21 @@ function MyArray() {
        this.length--;
        return lastItem;
     }
+
+    this.forEach = function(fn){ // метод приймає іншу функцію і викликає її на кожному елементі об'єкту
+        // 1. Пройти циклом по поточному об'єкту
+        for (let i = 0; i < this.length; i++) {
+         // 2. Викликати цю функцію на кожному елементі 
+            fn(this[i]);
+        }
+    }
 }
+
+const newarr = new MyArray();
+
+// newarr.forEach(function(elem){
+//     console.log(elem);
+// })
 
 
 /*
@@ -25,5 +39,8 @@ this.value--;
 Задачка з *: 
 1. реалізувати метод forEach
 2. Реалізувати метод filter
+
+
+3. Реалізувати метод reverse
 
 */
