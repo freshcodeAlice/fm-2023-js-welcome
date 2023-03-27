@@ -1,5 +1,14 @@
 /// Виключення - Exceptions (Error)
 
+/** JSDoc
+ * 
+ * @param {Number} num - Number thar will power
+ * @param {Number} exp - Exponent (power)
+ * @throws {TypeError} - If arguments is incorrect
+ * @throws {RangeError} - If exp < 0
+ * @returns {Number}
+ */
+
 function pow(num, exp) {
     if(typeof num !== 'number' || typeof exp !== 'number'){
         throw new TypeError('Argument must be a number');
@@ -43,6 +52,5 @@ try {
 }
 
 
-pow()
 
 console.log('There is my additional code');
