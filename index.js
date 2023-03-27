@@ -1,110 +1,40 @@
-function MyArray() {
-    this.length = 0;
-
-    for(let i = 0; i < arguments.length; i++) {
-        this[this.length] = arguments[i];
-        this.length++;
-    }
-
+const cat1 = {
+    name: 'Murzik',
+    age: 3,
 }
 
 
-function MyProtoArray() {
-    this.push = function(value) {
-        this[this.length] = value;
-        this.length++;
-    }
+const cat2 = {
+    name: 'Murochka',
+    age: 2,
+}
 
-    this.pop = function() {
-        const lastItem = this[this.length-1];
-       delete this[this.length-1];
-       this.length--;
-       return lastItem;
-    }
+const cat3 = {
+    name: 'Barsik',
+    age:4
+}
 
-    this.forEach = function(fn){ 
-        for (let i = 0; i < this.length; i++) {
-            fn(this[i]);
-        }
+const catProto = {
+    sayMeow: function(){
+        return `${this.name} say meow`
     }
 }
 
 
-const protoArray = new MyProtoArray();
-MyArray.prototype = protoArray;
+/// __proto__
+
+cat1.__proto__ = catProto;
+cat2.__proto__ = catProto;
+cat3.__proto__ = catProto;
 
 
-
-/////// Прототипи - практика
-
-/*
-Написати функцію-конструктор для юзера.
-Юзер має:
-- ім'я
-- прізвище
-
-- метод, що повертає повне ім'я (ім'я + прізвище): `${this.name} ${this.lastName}`
-Метод має бути у прототипі об'єкта.
-
-*/
-
-function User(firstName, lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+function Cat(name, age) {
+    this.name = name;
+    this.age = age;
 }
 
 
-function UserPrototype() {
-    this.getFullName = function() {
-        return `${this.name} ${this.lastName}`
-    }
-}
+Cat.prototype = catProto;
 
-User.prototype = new UserPrototype();
-
-
-/*
-Написати функцію-конструктор для сходів ( Ladder)
-Є властивість:
-- step
-
-Методи:
- - up() - піднятись на сходинку вище
- - down() - спуститись на сходинку нижче
- - showStep() - подивитись, на якій сходинці ми зараз є
-
-
-*/
-
-
-function Ladder(){
-    this.step = 0;
-}
-
-
-function LadderPrototype(){
-    this.up = function(){
-        this.step++;
-        return this;
-    }
-    this.down = function () {
-        this.step--;
-        return this;
-    }
-    this.showStep = function() {
-        return this.step;
-    }
-}
-
-Ladder.prototype = new LadderPrototype();
-
-///lddr.up().up().up().down(); - chaining (chain - ланцюжок, цепочка) - об'єднання викликів методів таким чином, що попередній виклик повертає об'єкт або значення, з яким відпрацьовує наступний метод
-
-/*
-Створити функцію-конструктор об'єкту Accumulator, який має властивість value, що є сумою всіх переданих цьму об'єкту чисел
-
-Реалізовує метод add(), який додає до властивості value ще будь-яку довільну кількість чисел, повертає поточне value
-
-Метод реалізувати через прототип об'єкта
-
-*/
+const cat4 = new Cat('sss', 2);
+const cat5 = new Cat('eeee', 1);
