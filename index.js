@@ -1,8 +1,38 @@
 class Worker {
     constructor(name, rate, days) {
         this.name = name;
-        this.rate = rate;
-        this.days = days;
+       this.rate = rate; // Це насправді використання сеттера!!
+       this.days = days; // Це насправді використання сеттера!
+    }
+
+    set rate(value){
+        if (typeof value !== 'number') {
+            throw new TypeError('Rate must be a number');
+        }
+        if (value < 0) {
+            throw new RangeError('Rate must be more than zero')
+        } 
+        this._rate = value;
+    }
+
+    get rate(){
+        return this._rate;
+    }
+
+
+
+    set days(value) {
+        if (typeof value !== 'number') {
+            throw new TypeError('Days must be a number');
+        }
+        if (days < 0) {
+            throw new RangeError('Days must be more than zero')
+        } 
+        this._days = value;
+    }
+
+    get days() {
+        return this._days;
     }
 
     getSalary() {
@@ -11,53 +41,6 @@ class Worker {
 }
 
 
-/*
-Задачка Car
-
-Машина має:
-- бренд
-- максимальна швидкість
-- поточна швидкість
-
-
-Методи:
-- зупинка - stop (поточна швидкість = 0)
-- прискорення - accelerate (приймає значення і збільшує швидкість на вказане значення, якщо не досягнуто максимальної швидкості)
-- сповільнення - deaccelerate (приймає значення і зменшує швидкість на вказане значення, якщо це не призведе до від'ємної швидкості, інакше зупинка)
-
-
-*/
-
-
-class Car {
-    constructor(brand, maxSpeed = 200) {
-        this.brand = brand;
-        this.maxSpeed = maxSpeed;
-        this.speed = 0;
-    }
-
-
-    accelerate(value) {
-        this.speed += value;
-        if (this.speed > this.maxSpeed) {
-            this.speed = this.maxSpeed;
-        }
-        return this.speed;
-    }
-
-    deaccelerate(value) {
-        this.speed -= value;
-        if(this.speed < 0) {
-            this.speed = 0;
-        }
-        return this.speed;
-    }
-
-    stop() {
-        this.speed = 0;
-        return this.speed;
-    }
-}
-
-
-const bmv = new Car('BMV', 250);
+// Сеттери і геттери
+// Сеттер - функція для зміни (встановлення) значення (set - встановлювати)
+// Геттер - функція для отримання значення (get - отримувати)
