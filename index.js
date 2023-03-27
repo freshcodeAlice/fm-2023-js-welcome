@@ -1,40 +1,28 @@
-const cat1 = {
-    name: 'Murzik',
-    age: 3,
-}
+/// Виключення - Exceptions (Error)
 
+function pow(num, exp) {
 
-const cat2 = {
-    name: 'Murochka',
-    age: 2,
-}
-
-const cat3 = {
-    name: 'Barsik',
-    age:4
-}
-
-const catProto = {
-    sayMeow: function(){
-        return `${this.name} say meow`
+    if(typeof num !== 'number' || typeof exp !== 'number'){
+        throw new TypeError('Argument must be a number');
     }
+
+    if(exp < 0) {
+        throw new RangeError('Exp must be a positive number');
+    }
+
+    if (exp === 1) {
+        return num
+    }
+    let result = num;
+    for (let i = 1; i < exp; i++) {
+        result*=num
+    }
+
+    return result;
 }
 
 
-/// __proto__
+/*
+Дописати цю функцію таким чином, щоби при передачі від'ємного ступеня викидалася відповідна помилка
 
-cat1.__proto__ = catProto;
-cat2.__proto__ = catProto;
-cat3.__proto__ = catProto;
-
-
-function Cat(name, age) {
-    this.name = name;
-    this.age = age;
-}
-
-
-Cat.prototype = catProto;
-
-const cat4 = new Cat('sss', 2);
-const cat5 = new Cat('eeee', 1);
+*/
