@@ -1,99 +1,51 @@
-class Animal {
-    constructor(name, amountOfLegs, type) {
-        //// this -> {}
+class Squirell {
+    constructor(name, color) {
         this.name = name;
-        this.amountOfLegs = amountOfLegs;
-        this.type = type;
-    }
-
-    set name(value) {
-        if (typeof value !== 'string') {
-            throw new TypeError('Name must be a string')
-        }
-        this._name = value;
-    }
-
-    get name() {
-        return this._name;
-    }
-
-    saySomething() {
-        return `${this._name} making noize`
+        this.color = color;
     }
 
     eat() {
-        return `${this._name} is eating`
+        return `${this.name} is eating`
     }
 
-    static isAnimal(obj) {
-       return obj instanceof Animal;
-    }
- }
-
-
- class Dog extends Animal {
-    constructor(name, amountOfLegs, type, color) {
-        super(name, amountOfLegs, type);
-        this.color = color;
-
-    }
-
-    run() {
-        return `${this._name} is running`
-    }
- }
-
-
-
- /*
-Створити класи Адміна, Модератора і Користувача 
-(Admin, Moderator, User)
-
-Адмін:
-- має ім'я, прізвище, position
-
-Модератор
-- має ім'я, прізвище, position
-метод, який приймає користувача і "банить" його
-getBan(user)
-
-Користувач
-- має ім'я, прізвище, isBanned
-
-
-
- */
-
-
-class User {
-    constructor(name, lastName) {
-        this.name = name;
-        this.lastName = lastName;
-        this.isBanned = false;
-    }
+    climb() {
+        return `${this.name} on tree!`
+    }   
 }
 
-class Moderator extends User {
-    constructor(name, lastName) {
-        super(name, lastName);
-        this.isBanned = undefined;
-        this.position = 'Moderator';
-//        delete this.isBanned;
+class FlyingSquirell extends Squirell{
+    constructor(name, color) {
+        super(name, color);
     }
 
-    getBan(user) {
-        user.isBanned = true;
-    }
-
-    toggleBan(user) {
-        user.isBanned = !user.isBanned;
+    fly() {
+        return `${this.name} is flying`
     }
 
 }
 
-class Admin extends Moderator{
-    constructor(name, lastName) {
-        super(name, lastName);
-        this.position = 'Admin';
+/*
+Написати класс казкової білки, яка вміє літати, танцювати (dance) і пісні співати (singASong)
+Пісні будуть задаватися масивом назв пісень при створенні білки
+
+
+Додати казковій білці метод, який перевіряє, чи вміє білка співати задану пісню
+*/
+
+
+class FairySquirell extends FlyingSquirell {
+    constructor(name, color, songs = []) {
+        super(name, color);
+        this.songs = songs;
+    }
+
+    singASong() {
+        const randomSong = Math.round(Math.random()*10);
+        return `Squirell song a ${this.songs[randomSong]}`;
+    }
+
+    canISongThis(songName) {
+        return this.songs.includes(songName)
     }
 }
+
