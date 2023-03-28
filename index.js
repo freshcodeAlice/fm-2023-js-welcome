@@ -1,51 +1,79 @@
-class Squirell {
-    constructor(name, color) {
-        this.name = name;
-        this.color = color;
+class Figure {
+    constructor(type) {
+        this.type = type;
     }
 
-    eat() {
-        return `${this.name} is eating`
-    }
+    getArea() {
 
-    climb() {
-        return `${this.name} on tree!`
-    }   
+    }
 }
 
-class FlyingSquirell extends Squirell{
-    constructor(name, color) {
-        super(name, color);
+class Triangle extends Figure{
+    constructor(a, h) {
+        super('triangle');
+        this.a = a;
+        this.h = h;
     }
 
-    fly() {
-        return `${this.name} is flying`
+    set a (value) {
+        this._a = value;
     }
 
+    get a() {
+        return this._a;
+    }
+
+    set h(value) {
+        this._h = value;
+    }
+
+    get h() {
+        return this._h;
+    }
+
+// Перевизначення (перезапис) батьківського методу - override
+    getArea() {
+        return (this.a * this.h) / 2;
+    }
 }
 
 /*
-Написати класс казкової білки, яка вміє літати, танцювати (dance) і пісні співати (singASong)
-Пісні будуть задаватися масивом назв пісень при створенні білки
+Написати клас Квадрат (Square)
+додати метод обчислення площі квадрату
 
-
-Додати казковій білці метод, який перевіряє, чи вміє білка співати задану пісню
 */
 
 
-class FairySquirell extends FlyingSquirell {
-    constructor(name, color, songs = []) {
-        super(name, color);
-        this.songs = songs;
+class Square extends Figure {
+    constructor(a) {
+        super('square');
+        this.a = a;
     }
 
-    singASong() {
-        const randomSong = Math.round(Math.random()*10);
-        return `Squirell song a ${this.songs[randomSong]}`;
-    }
-
-    canISongThis(songName) {
-        return this.songs.includes(songName)
+    getArea() {
+        return this.a * this.a;
     }
 }
 
+
+/////////
+
+/**
+ * 
+ * @param {Figure} figure 
+ * @returns 
+ */
+
+function getFigureArea(figure) {
+    if (figure instanceof Figure) {
+        return figure.getArea()
+    }
+
+}
+
+
+/*
+Поліморфізм - здатність функції працювати з об'єктами різних типів, якщо вони пов'язані наслідуванням
+Так само, як вона працює з екземпляром Figure, вона може працювати з будь-яким наслідником цього класу
+
+*/
