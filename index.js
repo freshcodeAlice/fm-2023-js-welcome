@@ -77,3 +77,20 @@ function getFigureArea(figure) {
 Так само, як вона працює з екземпляром Figure, вона може працювати з будь-яким наслідником цього класу
 
 */
+
+
+/*
+Напишіть класс Circle, який реалізовує обчислення площі круга
+
+*/
+
+class Circle extends Figure {
+    constructor(r) {
+        super('circle');
+        this.r = r;
+    }
+
+    getArea() {
+        return Math.PI * this.r * this.r;
+    }
+}
