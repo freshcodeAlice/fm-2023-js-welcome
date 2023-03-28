@@ -1,46 +1,41 @@
-class Worker {
-    constructor(name, rate, days) {
+class Animal {
+    constructor(name, amountOfLegs, type) {
+        //// this -> {}
         this.name = name;
-       this.rate = rate; // Це насправді використання сеттера!!
-       this.days = days; // Це насправді використання сеттера!
+        this.amountOfLegs = amountOfLegs;
+        this.type = type;
     }
 
-    set rate(value){
-        if (typeof value !== 'number') {
-            throw new TypeError('Rate must be a number');
+    set name(value) {
+        if (typeof value !== 'string') {
+            throw new TypeError('Name must be a string')
         }
-        if (value < 0) {
-            throw new RangeError('Rate must be more than zero')
-        } 
-        this._rate = value;
+        this._name = value;
     }
 
-    get rate(){
-        return this._rate;
+    get name() {
+        return this._name;
     }
 
-
-
-    set days(value) {
-        if (typeof value !== 'number') {
-            throw new TypeError('Days must be a number');
-        }
-        if (days < 0) {
-            throw new RangeError('Days must be more than zero')
-        } 
-        this._days = value;
+    saySomething() {
+        return `${this._name} making noize`
     }
 
-    get days() {
-        return this._days;
+    eat() {
+        return `${this._name} is eating`
+    }
+ }
+
+
+ class Dog extends Animal {
+    constructor(name, amountOfLegs, type, color) {
+        super(name, amountOfLegs, type);
+        this.color = color;
+
     }
 
-    getSalary() {
-        return this.rate * this.days
+    run() {
+        return `${this._name} is running`
     }
-}
+ }
 
-
-// Сеттери і геттери
-// Сеттер - функція для зміни (встановлення) значення (set - встановлювати)
-// Геттер - функція для отримання значення (get - отримувати)
