@@ -25,7 +25,6 @@ class Animal {
         return `${this._name} is eating`
     }
 
-
     static isAnimal(obj) {
        return obj instanceof Animal;
     }
@@ -44,3 +43,57 @@ class Animal {
     }
  }
 
+
+
+ /*
+Створити класи Адміна, Модератора і Користувача 
+(Admin, Moderator, User)
+
+Адмін:
+- має ім'я, прізвище, position
+
+Модератор
+- має ім'я, прізвище, position
+метод, який приймає користувача і "банить" його
+getBan(user)
+
+Користувач
+- має ім'я, прізвище, isBanned
+
+
+
+ */
+
+
+class User {
+    constructor(name, lastName) {
+        this.name = name;
+        this.lastName = lastName;
+        this.isBanned = false;
+    }
+}
+
+class Moderator extends User {
+    constructor(name, lastName) {
+        super(name, lastName);
+        this.isBanned = undefined;
+        this.position = 'Moderator';
+//        delete this.isBanned;
+    }
+
+    getBan(user) {
+        user.isBanned = true;
+    }
+
+    toggleBan(user) {
+        user.isBanned = !user.isBanned;
+    }
+
+}
+
+class Admin extends Moderator{
+    constructor(name, lastName) {
+        super(name, lastName);
+        this.position = 'Admin';
+    }
+}
