@@ -42,52 +42,56 @@ const {sizes: {
 //const widthValue = monitor.sizes.width.value;
 //const manufacturerCity = monitor.manufacturer.address.city;
 
-const diagonal = Math.sqrt(lengthValue * lengthValue + widthValue * widthValue);
-
-console.log(diagonal);
+//const diagonal = Math.sqrt(lengthValue * lengthValue + widthValue * widthValue);
 
 
-const cat2 = {
-    name: 'Barsik',
-    girlfriend: {
-        name: 'Murka',
-        child: {
-            name: 'Kitty1'
+function getDiagonal({sizes: {
+    length: {value: lengthValue},
+    width: {value: widthValue}
+    },
+    manufacturer: {
+        address: {
+            city: manufacturerCity
         }
     }
+}) {
+   return Math.sqrt(lengthValue * lengthValue + widthValue * widthValue);
 }
 
 
-/// Витягти в нові змінні імена подружки Барсіка і ім'я першого кошенятка
-
-const {girlfriend: {name: barsikGirl, child: {name: childName}}} = cat2;
-console.log(barsikGirl);
-console.log(childName);
-
-const array = [2, 3, 4, 5, 6];
-
-
-const [firstElem, secondElem, , , fourthElement] = array;
-console.log(firstElem);
-console.log(secondElem);
-console.log(fourthElement);
-
-
-
-const cat3 = {
-    name: 'Barsik',
-    girlfriend: {
-        name: 'Murka',
-        child: [{
-            name: 'Kitty1'
-        }, {
-            name: 'Kitty2'
-        }, {
-            name: 'Kitty3'
-        }]
-    }
+function getUserHello({name}) {
+    return `Hello, ${name}`
 }
 
-const {girlfriend: {child: [{name: firstChildName}]}} = cat3;
+const user = {
+    name: 'John',
+    lastName: 'Doe'
+}
 
-console.log(firstChildName);
+getUserHello(user)
+
+
+
+
+function getSumOfProperties({prop1, prop2, prop3}) {
+    return prop1 + prop2 - prop3
+}
+
+getSumOfProperties({
+    prop1: 2,
+    prop2: 3,
+    prop3: 4
+});
+
+
+
+
+function getSumOfFirstThreeElements([a, b, c, ...restArray]) {
+    return a + b + c;
+}
+
+/// Напишіть мені функцію, яка приймає масив, деструктурує перший елемент і повертає сумму першого елемента і останнього
+
+function getFirstAndLast([first, ...rest]) {
+    return first + rest[rest.length - 1];
+}
