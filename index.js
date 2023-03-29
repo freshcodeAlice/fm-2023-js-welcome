@@ -1,23 +1,40 @@
 'use strict'
 
-// function declaration
-function test() {
-    console.log(this);
+const newspaper = {
+    title: 'My super news',
+    articles: [{
+        author: 'Van Doe',
+        header: 'Article1',
+        body: 'lorem ipsum'
+    }, {
+        author: 'John Doe',
+        header: 'Article2',
+        body: 'dolor sit amet'
+    }, {
+        author: 'Jane Doe',
+        header: 'Article3',
+        body: 'lorem ipsum'
+    }, {
+        author: 'Alex Doe',
+        header: 'Article4',
+        body: 'dolor sit amet'
+    }, {
+        author: 'Carl Doe',
+        header: 'Article5',
+        body: 'lorem ipsum'
+    },{
+        author: 'Miky Doe',
+        header: 'Article6',
+        body: 'dolor sit amet'
+    },{
+        author: 'Ricky Doe',
+        header: 'Article7',
+        body: 'lorem ipsum'
+    }],
+    showArticles() {
+        ///// this -> newspaper
+        this.articles.forEach((currentArticle, index) => {
+            console.log(`${this.title} --- ${index}: ${currentArticle.author} - ${currentArticle.header}`);
+        }) 
+    }
 }
-
-test()
-
-// Function expression
-const fn2 = function () {
-    console.log(this);
-}
-
-fn2();
-
-
-/// Arrow function
-const arrfn = () => {
-    console.log(this);
-}
-
-arrfn()
