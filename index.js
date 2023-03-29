@@ -1,43 +1,17 @@
 'use strict'
 
-const newspaper = {
-    title: 'My super news',
-    articles: [{
-        author: 'Van Doe',
-        header: 'Article1',
-        body: 'lorem ipsum'
-    }, {
-        author: 'John Doe',
-        header: 'Article2',
-        body: 'dolor sit amet'
-    }, {
-        author: 'Jane Doe',
-        header: 'Article3',
-        body: 'lorem ipsum'
-    }, {
-        author: 'Alex Doe',
-        header: 'Article4',
-        body: 'dolor sit amet'
-    }, {
-        author: 'Carl Doe',
-        header: 'Article5',
-        body: 'lorem ipsum'
-    },{
-        author: 'Miky Doe',
-        header: 'Article6',
-        body: 'dolor sit amet'
-    },{
-        author: 'Ricky Doe',
-        header: 'Article7',
-        body: 'lorem ipsum'
-    }],
-    showArticles() {
-        this.articles.forEach(logItems.bind(this)) 
-    }
-}
+
+const sum = (a, b, c) => a + b + c;
 
 
-function logItems (currentArticle, index) {
-    console.log(this);
-    console.log(`${this.title} --- ${index}: ${currentArticle.author} - ${currentArticle.header}`);
+function sumAll() {
+    // сума будь-якої кількості аргументів
+    // let sum = 0;
+    // for (let i = 0; i < arguments.length; i++) {
+    //     sum += arguments[i]
+    // }
+    const argArray = Array.from(arguments);
+   const res = Array.from(arguments).reduce((accumulator, current) =>  accumulator + current ,0)
+    return res;
+//    return sum
 }
