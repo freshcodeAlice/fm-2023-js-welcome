@@ -32,9 +32,12 @@ const newspaper = {
         body: 'lorem ipsum'
     }],
     showArticles() {
-        ///// this -> newspaper
-        this.articles.forEach((currentArticle, index) => {
-            console.log(`${this.title} --- ${index}: ${currentArticle.author} - ${currentArticle.header}`);
-        }) 
+        this.articles.forEach(logItems.bind(this)) 
     }
+}
+
+
+function logItems (currentArticle, index) {
+    console.log(this);
+    console.log(`${this.title} --- ${index}: ${currentArticle.author} - ${currentArticle.header}`);
 }
