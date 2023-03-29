@@ -15,3 +15,16 @@ function sumAll() {
     return res;
 //    return sum
 }
+
+// Написати стрілочну функцію, яка приймає необмежену кількість аргументів і повертає їхню сумму
+const sumAllArrow = (...array) => array.reduce((accumulator, current) =>  accumulator + current ,0);
+
+
+///// Оператор rest (з англ. залишок) -  збирає розрізнені елементи в масив
+// ...arrayName - оператор сприйме купу розрізнених значень і збере їх в масив за назвою arrayName
+
+function restExample(a, b, ...restArray){
+    console.log(a);
+    console.log(b);
+    console.log(restArray);
+}
