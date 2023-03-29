@@ -1,30 +1,26 @@
 'use strict'
 
 
-const sum = (a, b, c) => a + b + c;
 
 
-function sumAll() {
-    // сума будь-якої кількості аргументів
-    // let sum = 0;
-    // for (let i = 0; i < arguments.length; i++) {
-    //     sum += arguments[i]
-    // }
-    const argArray = Array.from(arguments);
-   const res = Array.from(arguments).reduce((accumulator, current) =>  accumulator + current ,0)
-    return res;
-//    return sum
+function sumAll(...restArr) {
+
+    let sum = 0;
+    for (let i = 0; i < restArr.length; i++) {
+        sum += restArr[i]
+    }
+
+   return sum
 }
 
-// Написати стрілочну функцію, яка приймає необмежену кількість аргументів і повертає їхню сумму
-const sumAllArrow = (...array) => array.reduce((accumulator, current) =>  accumulator + current ,0);
+/*
+ Склейте масив [1, 3, 5, 7] та масив [2, 4, 6, 8], не використовуючи методу concat()
+
+ [1,3,5,7,2,4,6,8];
+
+*/
 
 
-///// Оператор rest (з англ. залишок) -  збирає розрізнені елементи в масив
-// ...arrayName - оператор сприйме купу розрізнених значень і збере їх в масив за назвою arrayName
-
-function restExample(a, b, ...restArray){
-    console.log(a);
-    console.log(b);
-    console.log(restArray);
-}
+const arr1 = [1, 3, 5, 7];
+const arr2 = [2, 4, 6, 8];
+const concatedArray = [...arr1, ...arr2];
