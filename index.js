@@ -1,75 +1,51 @@
-//// Подвійні цикли
+///  Рекурсія
 
-/// Намалювати в консолі квадрат 8*8 за допомогою символа "*"
+// Рекурсія - це коли функція викликає сама себе.
 
-// let str = '';
-// for(let i = 0; i < 8; i++) {
-//     for(let j = 0; j < 8; j++) {
-//         str+='*';
-//     }
-//     str += '\n'
-// }
+/// Написати функцію, яка знаходить факторіал від заданого числа
+
+// 5! = 1*2*3*4*5
+// 5! = 4! * 5 = 3! * 4 * 5 = 2! * 3 * 4 * 5 = 1! * 2 * 3 * 4 * 5
+/// 1! = 1 - база рекурсії
 
 
-// console.log(str);
+function factorial(num) {
 
-
-/// Намалювати трикутник 
-
-function drowTriangle(dim) {
-    let str = '';
-    for(let i = 0; i < dim; i++) {
-        for(let j = 0; j <= i; j++) {
-               str+='*';
-       }
-        str += '\n'
+    if (num === 1) {
+        return 1
     }
-   
-   
-    console.log(str);
-}
- 
-
-
-/// Задачка з *: Намалювати квадрат, всередині якого пусто
-
-function drowEmptySquare(dim) {
-    let str = '';
-    for(let i = 0; i < dim; i++) {
-        for(let j = 0; j < dim; j++) {
-            if(i === 0 || i === dim-1 || j === 0 || j === dim-1 ) {
-                str+='*';
-            } else {
-                str += ' ';
-            }
-    
-       }
-        str += '\n'
-    }
-    console.log(str);
+    const res = num * factorial (num - 1);
+    return res;
 }
 
 
-//drowEmptySquare(10);
+/// Написати функцію, яка обчислює і виводить на консоль ряд Фібоначчі до певного елемента
 
-/// Намалювати прямокутник зі зворотньою діагоналлю
+// Ряд Фібоначчі - числова послідовність, в якій кожен наступний елемент послідовності = сумі двох попередніх
+// F1 = 1
+// F2 = 1
+
+// F3 = 2
+// F4 = 3
+// F5 = 5
+
+// f(n) = f(n-1) + f(n-2);
 
 
-function drowEmptySquareWithDiagonal(dim) {
-    let str = '';
-    for(let i = 0; i < dim; i++) {
-        for(let j = 0; j < dim; j++) {
-            if(i === 0 || i === dim-1 || j === 0 || j === dim-1 || j === dim - i - 1) {
-                str+='*';
-            } else {
-                str += ' ';
-            }
-    
-       }
-        str += '\n'
+function fibonachi(n) {
+    if (n === 1) {
+        return 1
     }
-    console.log(str);
+    if (n === 2) {
+        return 1
+    }
+
+    return fibonachi(n-1) + fibonachi(n-2);
 }
 
 
-drowEmptySquareWithDiagonal(10);
+function getFibonachiNumbers(dimension) {
+    for (let i = 1; i <= dimension; i++) {
+        console.log(`${i} --- ${fibonachi(i)}`);
+    }
+}
