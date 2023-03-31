@@ -34,21 +34,37 @@ class MyArray {
         return accumulator;
     }
 
-    flat() {
-//        debugger;
-        const newArr = [];
+    concat(arrToConcat) {
+        const newArr = new MyArray();
         for (let i = 0; i < this.length; i++) {
-            let item;
-            if (this[i] instanceof MyArray) { ////Array.isArray();
-                ///// робимо щось, якщо перед нами елмент-масив
-                // for (let j = 0 ; j < this[i].length; j++ ) {
-                //     newArr.push(this[i][j]);
-                // }
-                // item = this[i].flat(); <---- Проблема отут!
-            } else {
-                item = this[i];
+            newArr.push(this[i])
+        }
+        for (let j = 0; j < arrToConcat.length; j++) {
+            newArr.push(arrToConcat[j]);
+        }
+        return newArr
+    }
+
+    /*
+    Написати реалізацію методу конкат
+    Метод примітива, він відпрацьовує на об'єкті MyArray, приймає другий масив до конкатенації і повертає новий масив, що складається з елементів попереднього і другого (переданого)
+
+
+
+    */
+
+    flat() {
+        let newArr = new MyArray();
+        for (let i = 0; i < this.length; i++) {
+            if (typeof this[i] === 'undefined') {
+                continue;
             }
-            newArr.push(item);
+            if (this[i] instanceof MyArray) {
+                newArr = newArr.concat(this[i].flat());
+            } else {
+                newArr.push(this[i]);
+            }
+            
         }
         return newArr;
     }
