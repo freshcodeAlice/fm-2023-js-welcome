@@ -75,4 +75,17 @@ class Student {
 }
 
 
+/*
+Отримати від користувача за допомогою prompt його дату народження
+'рік-місяць-день' і повернути кількість днів, що лишилась до дня народження
 
+
+*/
+
+function getMyBirthday() {
+    const userBirthday = prompt('Type your birthday');
+    const userBDate = new Date(userBirthday);
+    const bDateThisYear = new Date(new Date().getFullYear(), userBDate.getMonth(), userBDate.getDate());
+    const MsinDay = 1000 * 60 * 60 * 24;
+    return Math.floor((bDateThisYear.getTime() - Date.now()) / MsinDay);
+}
