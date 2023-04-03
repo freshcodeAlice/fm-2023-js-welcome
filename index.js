@@ -1,111 +1,78 @@
-//// Методи примітивів
+//// Date
+
+
+/// Написати функцію, яка видає час у форматі:
+/// година*хвилина
+
+
+function getFormatDate() {
+    const date = new Date();
+    console.log(`${date.getHours()}:${date.getMinutes()}`);
+}
+
+
+console.log(new Date().getHours());
+
+
 
 
 /*
-Коли ми працюємо з примітивами по значенню - це просто примітив, це не об'єкт.
-
-Коли ми викликаємо будь-який метод або властивість примітива, JS створює об'єкт-обгортку відповідного типу, викликає метод який ми зазначили, метод відпрацьовує, після чого об'єкт-обгортка знищується.
-*/
-
-
-/// Написати функцію, яка приймає рядок довільної довжини і повертає рядок, в якому всі слова написані з великої літери
-
-
-const getUpperWords = (string) => string.split(' ').map(word => word[0].toUpperCase().concat(word.slice(1))).join(' ');
-
-
-
-/*
-ДЗ на вихідні:
-
-
-1. Написати функцію, яка перевіряє рядок на спам. Заборонені слова містяться в масиві в середині функції, на кшталт: 
-const spamWords = ['viagra', 'XXX', 'porn'];
-Результат виклику функції - true, якщо рядок містить будь-що з забороненого і false, якщо не містить
-
-2. Створіть функцію truncate(), яка приймає рядок і кількість символів і "обрізає" рядок до вказаної довжини. Повертає новий обрізаний рядок, в кінці якого додаються "...", якщо рядок був обрізаний. Якщо рядок початково менший, ніж задана кількість символів, нічого не обрізається і три крапки не додаються.
-
-3. Написати функцію palindrom(), яка перевіряє чи є рядок паліндромом (тобто словом, яке читається з будь-якого боку однаково).
-palindrom('anna') -> true,
-palindrom('mama') -> false
-Регістр не враховувати ('Anna' або 'aNNA' - має спрацювати за будь-якого регістру)
-
-4. Написати функцію, яка повертає кількість голосних символів в переданому рядку.
-(Голосні це "a", "e", "o", "u"," i").
+Написати функцію, яка виводить поточну дату у форматі:
+Mon, 3 April --- 10:09
 
 
 */
 
 
-function isSpam(stringToCheck) {
-    const spamWords = ['viagra', 'XXX', 'porn'];
-    const newStr = stringToCheck.toLowerCase();
-    for (let i = 0; i < spamWords.length; i++) {
-        if(newStr.includes(spamWords[i].toLowerCase())) {
-            return true;
-        }
-    }
-    return false;
+function getFormatTime() {
+    const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const date = new Date();
+    console.log(`${weekDays[date.getDay() - 1]}, ${date.getDate()} ${monthNames[date.getMonth()]} --- ${date.getHours()}:${date.getMinutes()}`);
 }
 
-
-
-
-/// buyViAGraNOW
-
-
-////2
-
-function truncate(str, length) {
-    if(str.length < length) {
-        return str;
-    }
-    // const newstr = str.slice(0, length);
-    // newstr += "...";
-    // return newstr;
-
-    return str.slice(0, length).concat('...');
-}
-
-
-////3
-
-function palindrom(str) {
-    return str.toLowerCase().split('').reverse().join('') === str.toLowerCase();
-}
-
-
-
-
-/////4 
 
 /*
-Написати функцію, яка повертає кількість голосних символів в переданому рядку.
-(Голосні це "a", "e", "o", "u"," i").
+Створити клас Student, при створенні екземпляра очікуємо на
+- ім'я 
+- прізвище
+- рік вступу
+
+Реалізувати методи:
+- getFullName(), який повертає повне ім'я
+- getCourse(), який повертає на якому курсі вчиться студент. Якщо > 5, то повернути "випустився".
+Рік обчислюємо відносно поточного року.
+
+
+
 */
 
 
-function countVowels(string) {
-    const vowels = ['a', 'e', 'o', 'u', 'i'];
-    let count = 0;
-    for (let i = 0; i < string.length; i++) {
-        for(let j = 0; j < vowels.length; j++) {
-            if(string[i] === vowels[j]) {
-                count++
-            }
-        }
+
+class Student {
+    constructor(firstName, lastName, enterYear) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.enterYear = enterYear;
     }
-    return count;
+
+
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    getCourse() {
+        // const year = new Date().getFullYear();
+        // const course = year - this.enterYear;
+        // if(course > 5) {
+        //     return 'graduated'
+        // } else {
+        //     return course
+        // }
+        const course = new Date().getFullYear() - this.enterYear;
+        return course > 5 ? "graduated" : course;
+    }
 }
 
 
-function countVowels2(string) {
-    // const vowels = ['a', 'e', 'o', 'u', 'i'];
-    // const arr = string.split('');
-    // const resultArray = arr.filter((letter) => {
-    //     return vowels.includes(letter);
-    // });
-    // return resultArray.length;
 
-    return string.split('').filter(letter => ['a', 'e', 'o', 'u', 'i'].includes(letter)).length;
-}
