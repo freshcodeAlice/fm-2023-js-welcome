@@ -32,8 +32,8 @@ class LinkedList {
         this.head = item;
         this.tail = item;
         } else { // якщо хтось вже тут стоїть
-            this.tail.prev = item;
-            item.next = this.tail;
+            this.tail.next = item;
+            item.prev = this.tail;
             this.tail = item;
 
         }
