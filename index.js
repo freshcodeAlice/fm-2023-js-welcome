@@ -70,3 +70,33 @@ const recursiveBinarySearch = (array, whatToFind) => {
     return -1;
   }
 }
+
+
+/*
+Таска на "угадайку" - користувач загадує подумки число, ваша задача - написати функцію, яка його відгадує
+Число від 0 до 100
+
+Для підтвердження або спростування використовувати confirm
+
+
+*/
+
+
+function guessNumber() {
+  alert('Figure number from 0 to 100');
+  let start = 0;
+  let end = 100;
+  let middle = Math.round((start + end) / 2);
+  while(true) {
+    if(confirm(`Your number is ${middle}?`)) {
+      return middle;
+    }
+    if(confirm(`${middle} > than your number?`)) {
+      end = middle;
+      middle = Math.floor((start + end)/2);
+    } else {
+      start = middle;
+      middle = Math.ceil((start + end)/2);
+    }
+  }
+}
