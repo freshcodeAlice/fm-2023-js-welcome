@@ -1,34 +1,46 @@
-// For...of
+/// Map
 
-const array = [2, 3, 4, 5, 6];
-
-for (const key of array){
-//    console.log(key)
+const obj = {
+    key: 'value',
+    a: '1',
+    m: 222,
+    age: 111
 }
 
-
-// const myarr = new MyArray(4, 5, 6, 7, 8);
-
 /*
-for (const key of myarr){
-       console.log(key)
-    }
+В об'єкті може бути ключем рядок або т.д. Symbol
+
+В Map ключем може бути будь-який тип даних.
+1. Ключ має бути унікальним. 
+
 */
 
-
-/*
-Symbol.iterator - це метод, який повертає об'єкт.
-Метод реалізує принцип перебору.
-Об'єкт, що повертається - наз. Ітератор.
-
-В цьому об'єкті є метод next()
-
-Метод next() повертає об'єкт. Об'єкт з двома властивостями:
-{value,
-done}
-*/
+const map = new Map();
 
 
-for (let i = 0; i< array.length; i++) {
-    array[i]
+const fn = () => {}
+
+map.set(1, 'hello'); // встановити значення по ключу
+map.set({test: 'value'}, 'object');
+map.set(fn, 'test');
+
+map.get(fn) // отримати з мапи значення по ключу
+
+console.log(map.has('1'));
+
+
+
+/// Задача: написати функцію-перекладач
+
+
+function translater(stringToTranslate) {
+    const vocabulary = new Map();
+    vocabulary.set('cat', 'кіт');
+    vocabulary.set('eat', 'їсти');
+    vocabulary.set('dog', 'собака');
+
+     const words = stringToTranslate.toLowerCase().split(' ');
+   const translatedArray = words.map((word) => vocabulary.has(word) ? vocabulary.get(word) : word);
+
+  return translatedArray.join(' ');
 }
