@@ -7,7 +7,7 @@ for (const key of array){
 }
 
 
-const myarr = new MyArray(4, 5, 6, 7, 8);
+// const myarr = new MyArray(4, 5, 6, 7, 8);
 
 /*
 for (const key of myarr){

@@ -39,4 +39,24 @@ class LinkedList {
         }
         return ++this.length;
     }
+
+    [Symbol.iterator]() {
+        return new LinkedListIterator(this)
+     }
+}
+
+
+class LinkedListIterator {
+    constructor(list) {
+        this.list = list;
+        this.currentNode = null
+    }
+
+    next() {
+        this.currentNode = this.currentNode ? this.currentNode.next: this.list.head;
+        return {
+            value: this.currentNode?.value,
+            done: !this.currentNode
+        }
+    }
 }
