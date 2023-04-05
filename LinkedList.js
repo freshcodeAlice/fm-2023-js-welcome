@@ -55,7 +55,7 @@ class LinkedListIterator {
     next() {
         this.currentNode = this.currentNode ? this.currentNode.next: this.list.head;
         return {
-            value: this.currentNode?.value,
+            value: this.currentNode?.value, /// this.currentNode ? this.currentNode.value : undefined
             done: !this.currentNode
         }
     }
