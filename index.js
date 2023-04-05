@@ -1,46 +1,63 @@
 /// Map
 
-const obj = {
-    key: 'value',
-    a: '1',
-    m: 222,
-    age: 111
-}
+const map = new Map([['key1', 'value1'], ['key2', 'value2'], ['key3', 'value3']]);
 
 /*
-В об'єкті може бути ключем рядок або т.д. Symbol
-
-В Map ключем може бути будь-який тип даних.
-1. Ключ має бути унікальним. 
-
+map.set('key1', 'value1');
+map.set('key2', 'value2');
+map.set('key3', 'value3');
 */
 
-const map = new Map();
+
+/*
+Задача на анаграми: написати функцію, яка приймає два рядки і визначає, чи можемо ми відтворити другий рядок за допомогою літер першого рядка
 
 
-const fn = () => {}
+Декомпозиція задачі:
+1. Обидва слова треба привести до одного регістру
+2. Порахувати, скільки разів зустрічається та чи інша літера.
 
-map.set(1, 'hello'); // встановити значення по ключу
-map.set({test: 'value'}, 'object');
-map.set(fn, 'test');
+Слова є анаграмами, якщо в них однакова кількість однакових літер
 
-map.get(fn) // отримати з мапи значення по ключу
+*/
+/**
+ * 
+ * @param {String} str1 - перше слово
+ * @param {String} str2 - друге слово
+ * @returns {Boolean} - true, якщо слова є анаграмами, false якщо не є
+ */
 
-console.log(map.has('1'));
+function compare(str1, str2) {
+    const map1 = createVocabulary(str1.toLowerCase());
+    const map2 = createVocabulary(str2.toLowerCase());
+  
+    if(map1.size !== map2.size) {
+        return false
+    }
 
-
-
-/// Задача: написати функцію-перекладач
-
-
-function translater(stringToTranslate) {
-    const vocabulary = new Map();
-    vocabulary.set('cat', 'кіт');
-    vocabulary.set('eat', 'їсти');
-    vocabulary.set('dog', 'собака');
-
-     const words = stringToTranslate.toLowerCase().split(' ');
-   const translatedArray = words.map((word) => vocabulary.has(word) ? vocabulary.get(word) : word);
-
-  return translatedArray.join(' ');
+    for (const key of map1.keys()) {
+        if (map1.get(key) !== map2.get(key)){
+            return false
+        }
+    }
+    return true
 }
+
+
+function createVocabulary(str) {
+    const map = new Map();
+    for (let i=0; i < str.length; i++) {
+        if(map.has(str[i])) { /// літера мені вже раніше зустрічалась
+           let letterCount = map.get(str[i]);
+           map.set(str[i], letterCount+1);
+        } else { /// літера мені не зустрічалась ще жодного разу
+            map.set(str[i], 1);
+        }
+       
+    }
+    return map;
+}
+
+
+// mama -> amma
+// mama -> mamamam
