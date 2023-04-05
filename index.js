@@ -1,31 +1,34 @@
-// Symbol
+// For...of
 
-/*
-const symb = new Symbol();
-//Uncaught TypeError: Symbol is not a constructor
-const symb = Symbol();
-//undefined
-symb;
-//Symbol()
-const symb2 = Symbol('label for human');
-//undefined
-symb2
-//Symbol(label for human)
-const symb3 = Symbol();
-//undefined
-symb === symb3;
-//false
+const array = [2, 3, 4, 5, 6];
 
-
-*/
-
-
-const symb = Symbol();
-
-const obj = {
-    userName: 'John',
-    [symb]: 'Hello'
+for (const key of array){
+//    console.log(key)
 }
 
 
-console.log(obj[symb]);
+const myarr = new MyArray(4, 5, 6, 7, 8);
+
+/*
+for (const key of myarr){
+       console.log(key)
+    }
+*/
+
+
+/*
+Symbol.iterator - це метод, який повертає об'єкт.
+Метод реалізує принцип перебору.
+Об'єкт, що повертається - наз. Ітератор.
+
+В цьому об'єкті є метод next()
+
+Метод next() повертає об'єкт. Об'єкт з двома властивостями:
+{value,
+done}
+*/
+
+
+for (let i = 0; i< array.length; i++) {
+    array[i]
+}

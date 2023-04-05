@@ -69,6 +69,20 @@ class MyArray {
         return newArr;
     }
 
+    /* Реалізація перебору */
+    [Symbol.iterator]() {
+        let i = 0;
+        return {
+            next: () => {
+                return {
+                    value: this[i++],
+                    done: i > this.length,
+                }
+            }
+        }
+    }
+
+
 }
 
 
